@@ -89,11 +89,11 @@ img_panel.pack(side="top", padx=10, pady=10)
 detected_panel = Label(root)
 detected_panel.pack(side="top", padx=10, pady=10)
 
-set_up = ttk.Button(root, text="Set Up Experiment", command=lambda: (size_cm.clear(),capture_and_detect()))
+set_up = ttk.Button(root, text="Detect Vials and Phases", command=lambda: (size_cm.clear(),capture_and_detect()))
 set_up.pack(side="bottom", fill="both", padx=10, pady=10)
 
 # Button to run object detection
-capture_button = ttk.Button(root, text="Detect", command=lambda: capture_and_detect(),state="disabled")
+capture_button = ttk.Button(root, text="Save Data", command=lambda: capture_and_detect(),state="disabled")
 capture_button.pack(side="bottom", fill="both", padx=10, pady=10)
 
 entry_container = tk.Frame(root)
