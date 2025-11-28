@@ -1,1 +1,4 @@
 *.pt
+training_data
+trained_models
+runs
