@@ -1,3 +1,5 @@
 *.pt
 /data
 /runs
+/trained_models
+/training_data
