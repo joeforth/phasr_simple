@@ -2,7 +2,6 @@ from ultralytics import YOLO
 import cv2
 import numpy as np
 
-# model = YOLO("YOLOV11modelv9.pt")  # initialize model
 model = YOLO("best.pt")  # initialize model
 
 CLASS_COLORS = [

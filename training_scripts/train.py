@@ -7,14 +7,14 @@ def main():
         data="./data/data.yaml",
         epochs=600,
         imgsz=640,
-        batch=8,          # explicit; try 8, drop to 4 if it still OOMs
-        device="mps",
+        batch=-1,
+        device=0,
         workers=0,
-        cache=False,      # or "disk" if I/O is the bottleneck
+        cache="ram",
         seed=0,
         patience=100,
         close_mosaic=10,
-        project="runs/detect",
+        project="runs",
         name="yolo26m_pt"
     )
 
