@@ -1,27 +1,20 @@
 import csv
-import glob
 import os
+from datetime import datetime
 import tkinter as tk
-from tkinter import Label, Button, Entry, simpledialog, filedialog, messagebox, ttk
+from tkinter import Label, filedialog, messagebox, ttk
 import cv2
 from PIL import Image, ImageTk
-from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
-from pygrabber.dshow_graph import FilterGraph
 import processing
-import matplotlib.pyplot as plt
+from ultralytics import YOLO
+
+model = YOLO("./models/yolo26l_pt.pt")  # initialize model
+phase_names = ["Vial", "Broken cream", "Broken coalescence", "20% St", "Tt", "NS"]
 
 # Initialise global variables
 img_path = None
-
-# Global variables to hold schedule intervals (in milliseconds) and current index
-intervals = []
-current_interval_index = 0
-count=0
-folder=''
-capture_count=0
-phase_name = ["Vial", "Broken cream", "Broken coalescence", "20% St", "Tt", "NS"]
-description_entries = []
-timer_job = None
+last_vial_count = 0
+last_detected_phases = []
 
 def choose_input():
     global img_path
@@ -30,14 +23,10 @@ def choose_input():
         ("Image Files", "*.jpg *.jpeg *.png *.tiff *.bmp"),
     ]
 
-    img_path = filedialog.askopenfilename(title="Select media file", filetypes=filetypes)
+    img_path = filedialog.askopenfilename(title="Select media file", initialdir="./images", filetypes=filetypes)
     if not img_path:
         return
 
-    img = cv2.imread(img_path)
-    if img is None:
-        return messagebox.showerror("Error", "Could not read image file.")
-    
     update_feed()
 
 def fit_to_display(img, max_w=1180, max_h=350):
@@ -64,25 +53,41 @@ def update_feed():
     img_panel.configure(image=imgtk)
 
 def capture_and_detect():
-    global capture_count
-    global count
-    global folder
-
-    detected_frame = cv2.imread(img_path)
-
-    processed, _ = processing.ProcessImage(detected_frame, phase_name)
-    processed = fit_to_display(processed)
+    global last_vial_count, last_detected_phases
+    frame = cv2.imread(img_path)
+    frame, vial_count, detected_classes = processing.ProcessImage(frame, model, phase_names)
+    frame = fit_to_display(frame)
     # Convert processed frame to RGB and update the detection panel
-    detected_rgb = cv2.cvtColor(processed, cv2.COLOR_BGR2RGB)
-    img_detected = Image.fromarray(detected_rgb)
-    imgtk_detected = ImageTk.PhotoImage(image=img_detected)
-    detected_panel.imgtk = imgtk_detected
-    detected_panel.configure(image=imgtk_detected)
+    frame_rgb = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
+    frame_rgb = Image.fromarray(frame_rgb)
+    frame_tk = ImageTk.PhotoImage(image=frame_rgb)
+    detected_panel.imgtk = frame_tk
+    detected_panel.configure(image=frame_tk)
+
+    last_vial_count = vial_count
+    last_detected_phases = [phase_names[c] for c in sorted(detected_classes) if c < len(phase_names)]
     capture_button.configure(state="normal")
+
+def save_data():
+    results_path = "results.csv"
+    file_exists = os.path.exists(results_path)
+
+    with open(results_path, "a", newline="") as f:
+        writer = csv.writer(f)
+        if not file_exists:
+            writer.writerow(["timestamp", "image", "vial_count", "phases_detected"])
+        writer.writerow([
+            datetime.now().isoformat(timespec="seconds"),
+            os.path.basename(img_path),
+            last_vial_count,
+            "; ".join(last_detected_phases),
+        ])
+
+    messagebox.showinfo("Saved", f"Results appended to {results_path}")
 
 # Set up the main window
 root = tk.Tk()
-root.title("Object Detection")
+root.title("Phase Detection")
 root.geometry("1200x800")
 
 source_button = ttk.Button(root, text="Choose Input File", command=choose_input)
@@ -99,12 +104,8 @@ detected_panel.pack(side="top", padx=10, pady=10)
 set_up = ttk.Button(root, text="Detect Vials and Phases", command=capture_and_detect)
 set_up.pack(side="bottom", fill="both", padx=10, pady=10)
 
-# Button to run object detection
-capture_button = ttk.Button(root, text="Save Data", command=lambda: capture_and_detect(),state="disabled")
+capture_button = ttk.Button(root, text="Save Data", command=save_data, state="disabled")
 capture_button.pack(side="bottom", fill="both", padx=10, pady=10)
-
-entry_container = tk.Frame(root)
-entry_container.pack(side="bottom", fill="x", padx=10, pady=10)
 
 root.mainloop()
 

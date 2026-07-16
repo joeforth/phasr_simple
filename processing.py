@@ -1,10 +1,7 @@
-from ultralytics import YOLO
 import cv2
 import numpy as np
 
-model = YOLO("best.pt")  # initialize model
-
-CLASS_COLORS = [
+class_colours = [
     (255,  80,   0),  # 0 Vial               - blue
     ( 60, 200,  60),  # 1 Broken cream        - green
     (  0,  60, 220),  # 2 Broken coalescence  - red
@@ -31,12 +28,11 @@ def cluster_x_values(x_values, threshold=30):
     return groups
 
 
-def _draw_legend(img, phase_names, detected_classes):
+def draw_legend(img, phase_names, detected_classes):
     font = cv2.FONT_HERSHEY_SIMPLEX
     font_scale = 2.5
     thickness = 3
     pad = 12
-    swatch = 35
 
     entries = [(cls, phase_names[cls] if cls < len(phase_names) else str(cls))
                for cls in sorted(detected_classes)]
@@ -61,7 +57,7 @@ def _draw_legend(img, phase_names, detected_classes):
     img[ly:y2, lx:x2] = cv2.addWeighted(roi, 0.35, np.zeros_like(roi), 0.65, 0)
 
     for i, (cls, label) in enumerate(entries):
-        color = CLASS_COLORS[cls] if cls < len(CLASS_COLORS) else (255, 255, 255)
+        color = class_colours[cls] if cls < len(class_colours) else (255, 255, 255)
         y = ly + pad + i * row_h
         cv2.rectangle(img, (lx + pad, y), (lx + pad + swatch, y + swatch), color, -1)
         _, th = text_sizes[i]
@@ -69,30 +65,32 @@ def _draw_legend(img, phase_names, detected_classes):
                     font, font_scale, (255, 255, 255), thickness)
 
 
-def ProcessImage(image, phase_names=None):
+def ProcessImage(image, model, phase_names=None):
     results = model.predict(source=image, conf=0.65, iou=0.3, show_labels=False, device="cpu")
 
     img = image.copy()
 
     detections = []
     for result in results:
+        print(result)
         for box in result.boxes:
             class_id = int(box.cls[0].item())
             x1, y1, x2, y2 = [int(v) for v in box.xyxy[0]]
             detections.append((class_id, x1, y1, x2, y2))
 
+    print(detections)
     # Draw Vial (index 0) first so phase boxes render on top
     detections.sort(key=lambda d: (0 if d[0] == 0 else 1))
 
     detected_classes = set()
     for class_id, x1, y1, x2, y2 in detections:
-        color = CLASS_COLORS[class_id] if class_id < len(CLASS_COLORS) else (255, 255, 255)
+        color = class_colours[class_id] if class_id < len(class_colours) else (255, 255, 255)
         cv2.rectangle(img, (x1, y1), (x2, y2), color, 15)
         detected_classes.add(class_id)
 
     if phase_names and detected_classes:
-        _draw_legend(img, phase_names, detected_classes)
+        draw_legend(img, phase_names, detected_classes)
 
     x_arr = [(d[0], d[1], d[2]) for d in detections]
     vials = cluster_x_values(x_arr)
-    return img, len(vials)
+    return img, len(vials), detected_classes

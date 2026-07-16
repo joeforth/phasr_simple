@@ -15,10 +15,10 @@
 # Request the number of nodes
 #SBATCH -N 1
 # Request the number of GPUs per node to be used (if more than 1 GPU per node is required, change 1 into Ngpu, where Ngpu=2,3,4)
-#SBATCH --gres=gpu:2
+#SBATCH --gres=gpu:1
 # Request the number of CPU cores. (There are 24 CPU cores and 4 GPUs on each GPU node in partition gpu,
 # so please request 6*Ngpu CPU cores, i.e., 6 CPU cores for 1 GPU, 12 CPU cores for 2 GPUs, and so on.)
-#SBATCH -n 12
+#SBATCH -n 6
 # Set time limit in format a-bb:cc:dd, where a is days, b is hours, c is minutes, and d is seconds.
 #SBATCH -t 1-00:00:00
 # Insert your own username to get e-mail notifications (note: keep just one "#" before SBATCH)

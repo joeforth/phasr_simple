@@ -11,7 +11,7 @@ def main():
       optimizer="AdamW",
       plots=False,
       batch=16,
-      device="0,1",
+      device=0,
       workers=6,
       cache="ram",
       patience=100,
