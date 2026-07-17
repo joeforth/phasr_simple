@@ -1,7 +1,7 @@
 from ultralytics import YOLO
 
 def main():
-  model = YOLO("yolo26l.yaml")
+  model = YOLO("yolo26m.yaml")
 
   model.tune(
       data="/mnt/scratch/users/jwforth/data/data.yaml",
@@ -14,10 +14,8 @@ def main():
       device=0,
       workers=6,
       cache="ram",
-      patience=100,
-      close_mosaic=10,
       project="runs",
-      name="yolo26lyaml_tune",
+      name="yolo26myaml_tune",
   )
 
 if __name__ == "__main__":
