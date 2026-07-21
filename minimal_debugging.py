@@ -9,13 +9,12 @@ def fit_to_display(img, max_w=1180, max_h=350):
         img = cv2.resize(img, (int(w * scale), int(h * scale)), interpolation=cv2.INTER_AREA)
     return img
 
-model = YOLO("./models/yolo26l_pt.pt")  # initialize model
+model = YOLO("./trained_models/yolo26l_pt.pt")  # initialize model
 phase_names = ["Vial", "Broken cream", "Broken coalescence", "20% St", "Tt", "NS"]
 
 frame = cv2.imread('./images/Aracel 165 (RB) emulsions day 1 Squalane only samples 7-12.jpg')
-frame, vial_count, detected_classes = processing.ProcessImage(frame, model, phase_names)
-
-print(vial_count, detected_classes)
+frame, detections, vials = processing.DetectPhases(frame, model, phase_names)
+frame = processing.VisualisePhases(frame, detections, phase_names)
 
 frame = fit_to_display(frame)
 cv2.imshow("Image", frame)
