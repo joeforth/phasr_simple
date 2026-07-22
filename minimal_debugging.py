@@ -2,21 +2,30 @@ import cv2
 import processing
 from ultralytics import YOLO
 
-def fit_to_display(img, max_w=1180, max_h=350):
-    h, w = img.shape[:2]
-    scale = min(max_w / w, max_h / h, 1.0)
-    if scale < 1.0:
-        img = cv2.resize(img, (int(w * scale), int(h * scale)), interpolation=cv2.INTER_AREA)
-    return img
+# Some user-defined settings
+conf = 0.5      # Confidence threshold below which we ignore detected objects
+iou = 0.7       # Amount of overlap between detected objects above which we ignore them - this can be very high for vial detection!
+n_vials = 6     # Minimum number of vials in each image - triggers a warning if we detect fewer than this
+img_w, img_h = 1180, 500    # Maximum dimensions of the image shown
+filedir = './images/'
+filename = 'Aracel 165 (RB) emulsions day 1 Squalane only samples 7-12.jpg'
+phase_names = ["Vial", 
+               "Broken cream", 
+               "Broken coalescence", 
+               "20% St", 
+               "Tt", 
+               "NS"]
 
 model = YOLO("./trained_models/yolo26l_pt.pt")  # initialize model
-phase_names = ["Vial", "Broken cream", "Broken coalescence", "20% St", "Tt", "NS"]
 
-frame = cv2.imread('./images/Aracel 165 (RB) emulsions day 1 Squalane only samples 7-12.jpg')
-frame, detections, vials = processing.DetectPhases(frame, model, phase_names)
+frame = cv2.imread(os.path.join(filedir, filename))
+frame, detections, vials = processing.DetectPhases(frame, model, conf, iou, phase_names)
 frame = processing.VisualisePhases(frame, detections, phase_names)
+print('vials is', vials)
+detections_dict = FilterDetections(vials, filename, n_vials) 
+processing.SaveData(frame, filename, vials, phase_names)
 
-frame = fit_to_display(frame)
+frame = processing.fit_to_display(frame, img_w, img_h)
 cv2.imshow("Image", frame)
 cv2.waitKey(0)
 cv2.destroyAllWindows()
