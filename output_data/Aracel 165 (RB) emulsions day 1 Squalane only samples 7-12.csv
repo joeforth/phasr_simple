@@ -1,0 +1,7 @@
+filename,vial_ind,vial_conf,vial_bbox_x1y1_x2y2,phase_ind,phase_name,phase_score,phase_conf,phase_bbox_x1y1_x2y2,flag
+Aracel 165 (RB) emulsions day 1 Squalane only samples 7-12.jpg,1,0.8996207118034363,"(965, 1150, 1190, 1612)",3,20% St,4,0.8926752805709839,"(968, 1394, 1185, 1606)",
+Aracel 165 (RB) emulsions day 1 Squalane only samples 7-12.jpg,2,0.9563575387001038,"(1292, 1150, 1514, 1620)",3,20% St,4,0.9431540966033936,"(1302, 1416, 1512, 1613)",
+Aracel 165 (RB) emulsions day 1 Squalane only samples 7-12.jpg,3,0.6152875423431396,"(1613, 1157, 1819, 1628)",-1,Null,-1,0.0,,No phase detected!
+Aracel 165 (RB) emulsions day 1 Squalane only samples 7-12.jpg,4,0.9510594606399536,"(1921, 1166, 2124, 1634)",4,Tt,5,0.962123453617096,"(1920, 1411, 2118, 1630)",
+Aracel 165 (RB) emulsions day 1 Squalane only samples 7-12.jpg,5,0.9497490525245667,"(2214, 1165, 2422, 1639)",5,NS,6,0.522983193397522,"(2216, 1421, 2420, 1638)",
+Aracel 165 (RB) emulsions day 1 Squalane only samples 7-12.jpg,6,0.9512125253677368,"(2501, 1166, 2727, 1649)",5,NS,6,0.6094225645065308,"(2505, 1419, 2723, 1647)",

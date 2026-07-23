@@ -1,0 +1,131 @@
+{
+  "filename": "Arlacel 165 (RB) in squalane emulsions day 7 50deg samples 1-6.jpg",
+  "vials": [
+    {
+      "vial_ind": 1,
+      "vial_conf": 0.948136031627655,
+      "vial_bbox_x1y1_x2y2": [
+        1030,
+        1452,
+        1264,
+        1935
+      ],
+      "phase_ind": 3,
+      "phase_name": "20% St",
+      "phase_score": 4,
+      "phase_conf": 0.8470032215118408,
+      "phase_bbox_x1y1_x2y2": [
+        1032,
+        1707,
+        1261,
+        1929
+      ],
+      "flag": ""
+    },
+    {
+      "vial_ind": 2,
+      "vial_conf": 0.9459580183029175,
+      "vial_bbox_x1y1_x2y2": [
+        1311,
+        1443,
+        1535,
+        1927
+      ],
+      "phase_ind": 3,
+      "phase_name": "20% St",
+      "phase_score": 4,
+      "phase_conf": 0.841090977191925,
+      "phase_bbox_x1y1_x2y2": [
+        1312,
+        1708,
+        1533,
+        1921
+      ],
+      "flag": ""
+    },
+    {
+      "vial_ind": 3,
+      "vial_conf": 0.9514546990394592,
+      "vial_bbox_x1y1_x2y2": [
+        1592,
+        1432,
+        1812,
+        1915
+      ],
+      "phase_ind": 3,
+      "phase_name": "20% St",
+      "phase_score": 4,
+      "phase_conf": 0.9166693687438965,
+      "phase_bbox_x1y1_x2y2": [
+        1591,
+        1708,
+        1806,
+        1914
+      ],
+      "flag": ""
+    },
+    {
+      "vial_ind": 4,
+      "vial_conf": 0.9548722505569458,
+      "vial_bbox_x1y1_x2y2": [
+        1828,
+        1435,
+        2047,
+        1918
+      ],
+      "phase_ind": 3,
+      "phase_name": "20% St",
+      "phase_score": 4,
+      "phase_conf": 0.8023549318313599,
+      "phase_bbox_x1y1_x2y2": [
+        1829,
+        1711,
+        2048,
+        1914
+      ],
+      "flag": ""
+    },
+    {
+      "vial_ind": 5,
+      "vial_conf": 0.9539185166358948,
+      "vial_bbox_x1y1_x2y2": [
+        2119,
+        1427,
+        2336,
+        1916
+      ],
+      "phase_ind": 4,
+      "phase_name": "Tt",
+      "phase_score": 5,
+      "phase_conf": 0.8736743927001953,
+      "phase_bbox_x1y1_x2y2": [
+        2120,
+        1704,
+        2336,
+        1911
+      ],
+      "flag": ""
+    },
+    {
+      "vial_ind": 6,
+      "vial_conf": 0.9527027606964111,
+      "vial_bbox_x1y1_x2y2": [
+        2415,
+        1420,
+        2644,
+        1916
+      ],
+      "phase_ind": 3,
+      "phase_name": "20% St",
+      "phase_score": 4,
+      "phase_conf": 0.8350204825401306,
+      "phase_bbox_x1y1_x2y2": [
+        2420,
+        1700,
+        2640,
+        1909
+      ],
+      "flag": ""
+    }
+  ]
+}

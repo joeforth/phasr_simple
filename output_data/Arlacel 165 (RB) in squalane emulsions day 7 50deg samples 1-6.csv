@@ -1,0 +1,7 @@
+filename,vial_ind,vial_conf,vial_bbox_x1y1_x2y2,phase_ind,phase_name,phase_score,phase_conf,phase_bbox_x1y1_x2y2,flag
+Arlacel 165 (RB) in squalane emulsions day 7 50deg samples 1-6.jpg,1,0.948136031627655,"(1030, 1452, 1264, 1935)",3,20% St,4,0.8470032215118408,"(1032, 1707, 1261, 1929)",
+Arlacel 165 (RB) in squalane emulsions day 7 50deg samples 1-6.jpg,2,0.9459580183029175,"(1311, 1443, 1535, 1927)",3,20% St,4,0.841090977191925,"(1312, 1708, 1533, 1921)",
+Arlacel 165 (RB) in squalane emulsions day 7 50deg samples 1-6.jpg,3,0.9514546990394592,"(1592, 1432, 1812, 1915)",3,20% St,4,0.9166693687438965,"(1591, 1708, 1806, 1914)",
+Arlacel 165 (RB) in squalane emulsions day 7 50deg samples 1-6.jpg,4,0.9548722505569458,"(1828, 1435, 2047, 1918)",3,20% St,4,0.8023549318313599,"(1829, 1711, 2048, 1914)",
+Arlacel 165 (RB) in squalane emulsions day 7 50deg samples 1-6.jpg,5,0.9539185166358948,"(2119, 1427, 2336, 1916)",4,Tt,5,0.8736743927001953,"(2120, 1704, 2336, 1911)",
+Arlacel 165 (RB) in squalane emulsions day 7 50deg samples 1-6.jpg,6,0.9527027606964111,"(2415, 1420, 2644, 1916)",3,20% St,4,0.8350204825401306,"(2420, 1700, 2640, 1909)",

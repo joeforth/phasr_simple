@@ -1,5 +1,10 @@
 import cv2
 import numpy as np
+from dataclasses import dataclass, asdict, field
+import json
+import csv
+from dataclasses import dataclass, asdict
+from data_models import ImageResult, Vial
 
 class_colours = [
     (255,  80,   0),  # 0 Vial               - blue
@@ -10,8 +15,17 @@ class_colours = [
     (  0, 200, 200),  # 5 NS                  - yellow
 ]
 
+VIAL_CSV_FIELDS = ["filename", "vial_ind", "vial_conf", "vial_bbox_x1y1_x2y2",
+                    "phase_ind", "phase_name", "phase_score", "phase_conf",
+                    "phase_bbox_x1y1_x2y2", "flag"]
 
-def DetectPhases(image, model, conf=0.4, iou=0.5, phase_names=None):
+def load_class_names(path):
+    # Reads one class name per line (e.g. classes.txt) - order must match the model's class indices
+    with open(path) as f:
+        return [line.strip() for line in f if line.strip()]
+
+
+def detect_phases(image, model, conf=0.4, iou=0.5, phase_names=None):
     # Takes messy YOLO predict object and extracts bounding box coords and class labels
     # Returns:
     # Detections - list of identified objects with xy coords and label
@@ -32,36 +46,102 @@ def DetectPhases(image, model, conf=0.4, iou=0.5, phase_names=None):
     # Draw Vial (index 0) first so phase boxes render on top
     detections.sort(key=lambda d: (0 if d[0] == 0 else 1))
 
-    # Cluster values by bbox x-centre - assigns phases to vials
-    x_arr = [(d[0], d[5], d[6]) for d in detections]
-    vials = cluster_x_values(x_arr)
+    # Cluster values by bbox x-centre - assigns phases to vials - returns vials as the first element
+    vials = cluster_x_values(detections)
 
     return image, detections, vials
 
 
-def FilterDetections(detections, filename, n_vials)
-    # Build a dictionary - for each vial, create vial with index, phase detection, and confidence score
-    detections_dict = dict(file=filename, )
+def process_detections(vials, img_name, phase_names):
+    # Takes groups vials and phases from detections
+    # Outputs a DataClass for each image containing all detected vials and phases
+    # Detections of the form: (class_id, x1, y1, x2, y2, xc, yc, conf)
+    results = ImageResult(filename = img_name) 
 
-# def SaveData(frame, filename, vials, phase_names):
-#     for v_idx, v in enumerate(vials):
-#         if len(v) == 2:
-            
-#         if len(v) == 1:
-#             phase_index = -1
-#             phase_label = 'Null'
-#         with open('vial_data.csv', 'w', encoding="utf-8") as f:
-#             f.write()
-            
-    
+    for v_idx, v in enumerate(vials, start=1):
+        if len(v) == 1:
+            # Option for no phase detected
+            phase_ind = -1
+            phase_name = 'Null'
+            phase_score = -1
+            phase_conf = 0.0
+            phase_bbox_x1y1_x2y2 = None
+            flag = 'No phase detected!'
+
+        if len(v) == 2:
+            # Option for phase and vial detected
+            phase_ind = v[1][0]
+            phase_name = phase_names[phase_ind]
+            phase_score = phase_ind
+            phase_conf = v[1][-1]
+            phase_bbox_x1y1_x2y2 = v[1][1:5]
+            flag = ''
+
+        results.vials.append(Vial(
+            vial_ind=v_idx,
+            vial_conf=v[0][-1],
+            vial_bbox_x1y1_x2y2=v[0][1:5],
+            phase_ind=phase_ind,
+            phase_name=phase_name,
+            phase_score=phase_score,
+            phase_conf=phase_conf,
+            phase_bbox_x1y1_x2y2=phase_bbox_x1y1_x2y2,
+            flag = flag
+        ))
+
+    return results
+
+
+def flag_warnings(detections_class, n_vials):
+    # Warning strings for a low vial count and any flagged vial (e.g. 'No phase detected!')
+    warnings = []
+    if len(detections_class.vials) < n_vials:
+        warnings.append(f"{detections_class.filename}: only {len(detections_class.vials)} "
+                         f"vial(s) detected, expected at least {n_vials}")
+    for v in detections_class.vials:
+        if v.flag:
+            warnings.append(f"{detections_class.filename}: vial {v.vial_ind} - {v.flag}")
+    return warnings
+
+
+
+def save_data(detections_class, file_out):
+    # JSON: full nested structure, including bbox
+    json_path = f"{file_out}.json"
+    with open(json_path, "w") as f:
+        json.dump(asdict(detections_class), f, indent=2)
+
+    # CSV: one row per vial, including bbox
+    csv_path = f"{file_out}.csv"
+    with open(csv_path, "w", newline="") as f:
+        writer = csv.DictWriter(f, fieldnames=VIAL_CSV_FIELDS, extrasaction="ignore")
+        writer.writeheader()
+        for v in detections_class.vials:
+            writer.writerow({"filename": detections_class.filename, **asdict(v)})
+
+
+def save_batch_data(detections_classes, file_out):
+    # JSON: full nested structure for every image in the batch
+    json_path = f"{file_out}.json"
+    with open(json_path, "w") as f:
+        json.dump([asdict(dc) for dc in detections_classes], f, indent=2)
+
+    # CSV: one row per vial, across all images
+    csv_path = f"{file_out}.csv"
+    with open(csv_path, "w", newline="") as f:
+        writer = csv.DictWriter(f, fieldnames=VIAL_CSV_FIELDS, extrasaction="ignore")
+        writer.writeheader()
+        for dc in detections_classes:
+            for v in dc.vials:
+                writer.writerow({"filename": dc.filename, **asdict(v)})
 
 
 def suppress_overlapping_boxes(detections, iou_thres=0.5):
     # Our YOLO26 model is end-to-end/NMS-free, so ultralytics' iou/agnostic_nms
     # predict() args are silently ignored (see ultralytics.utils.nms.non_max_suppression).
     # Manually suppress lower-confidence boxes that overlap another box, regardless of class.
-    # detections: list of (class_id, x1, y1, x2, y2, conf)
-    by_conf = sorted(detections, key=lambda d: d[5], reverse=True)
+    # detections: list of (class_id, x1, y1, x2, y2, xc, yc, conf)
+    by_conf = sorted(detections, key=lambda d: d[7], reverse=True)
     kept = []
     for det in by_conf:
         if any(box_iou(det[1:5], k[1:5]) > iou_thres for k in kept):
@@ -88,6 +168,11 @@ def cluster_x_values(x_values, threshold=30):
             groups.append(current_group)
             current_group = [current]
     groups.append(current_group)
+
+    # Ensure the vial (class 0) is always the first entry in its group
+    for group in groups:
+        group.sort(key=lambda tup: 0 if tup[0] == 0 else 1)
+
     return groups
 
 
@@ -105,7 +190,7 @@ def box_iou(box_a, box_b):
     return inter / (area_a + area_b - inter)
 
 
-def VisualisePhases(image, detections, phase_names):
+def visualise_phases(image, detections, phase_names):
     # Preps the image and labels for visualisation, which is then mostly handled by draw_legend()
     # Copy image so opencv can manipulate directly
     img = image.copy()
