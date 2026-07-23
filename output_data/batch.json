@@ -13,7 +13,7 @@
         ],
         "phase_ind": 3,
         "phase_name": "20% St",
-        "phase_score": 4,
+        "phase_score": 3,
         "phase_conf": 0.923918604850769,
         "phase_bbox_x1y1_x2y2": [
           1019,
@@ -34,7 +34,7 @@
         ],
         "phase_ind": 3,
         "phase_name": "20% St",
-        "phase_score": 4,
+        "phase_score": 3,
         "phase_conf": 0.8649581670761108,
         "phase_bbox_x1y1_x2y2": [
           1331,
@@ -55,7 +55,7 @@
         ],
         "phase_ind": 4,
         "phase_name": "Tt",
-        "phase_score": 5,
+        "phase_score": 4,
         "phase_conf": 0.5203162431716919,
         "phase_bbox_x1y1_x2y2": [
           1618,
@@ -74,12 +74,17 @@
           2109,
           1607
         ],
-        "phase_ind": -1,
-        "phase_name": "Null",
-        "phase_score": -1,
-        "phase_conf": 0.0,
-        "phase_bbox_x1y1_x2y2": null,
-        "flag": "No phase detected!"
+        "phase_ind": 3,
+        "phase_name": "20% St",
+        "phase_score": 3,
+        "phase_conf": 0.3703596889972687,
+        "phase_bbox_x1y1_x2y2": [
+          1904,
+          1396,
+          2110,
+          1597
+        ],
+        "flag": ""
       },
       {
         "vial_ind": 5,
@@ -92,7 +97,7 @@
         ],
         "phase_ind": 5,
         "phase_name": "NS",
-        "phase_score": 6,
+        "phase_score": 5,
         "phase_conf": 0.7433708310127258,
         "phase_bbox_x1y1_x2y2": [
           2203,
@@ -113,7 +118,7 @@
         ],
         "phase_ind": 5,
         "phase_name": "NS",
-        "phase_score": 6,
+        "phase_score": 5,
         "phase_conf": 0.8648555874824524,
         "phase_bbox_x1y1_x2y2": [
           2501,
@@ -139,7 +144,7 @@
         ],
         "phase_ind": 1,
         "phase_name": "Broken cream",
-        "phase_score": 2,
+        "phase_score": 1,
         "phase_conf": 0.4759021997451782,
         "phase_bbox_x1y1_x2y2": [
           873,
@@ -160,7 +165,7 @@
         ],
         "phase_ind": 1,
         "phase_name": "Broken cream",
-        "phase_score": 2,
+        "phase_score": 1,
         "phase_conf": 0.8173164129257202,
         "phase_bbox_x1y1_x2y2": [
           1240,
@@ -181,7 +186,7 @@
         ],
         "phase_ind": 1,
         "phase_name": "Broken cream",
-        "phase_score": 2,
+        "phase_score": 1,
         "phase_conf": 0.9012051820755005,
         "phase_bbox_x1y1_x2y2": [
           1569,
@@ -202,7 +207,7 @@
         ],
         "phase_ind": 3,
         "phase_name": "20% St",
-        "phase_score": 4,
+        "phase_score": 3,
         "phase_conf": 0.9376609921455383,
         "phase_bbox_x1y1_x2y2": [
           1855,
@@ -223,7 +228,7 @@
         ],
         "phase_ind": 3,
         "phase_name": "20% St",
-        "phase_score": 4,
+        "phase_score": 3,
         "phase_conf": 0.9158048033714294,
         "phase_bbox_x1y1_x2y2": [
           2195,
@@ -244,7 +249,7 @@
         ],
         "phase_ind": 1,
         "phase_name": "Broken cream",
-        "phase_score": 2,
+        "phase_score": 1,
         "phase_conf": 0.9167325496673584,
         "phase_bbox_x1y1_x2y2": [
           2516,
@@ -270,7 +275,7 @@
         ],
         "phase_ind": 3,
         "phase_name": "20% St",
-        "phase_score": 4,
+        "phase_score": 3,
         "phase_conf": 0.8926752805709839,
         "phase_bbox_x1y1_x2y2": [
           968,
@@ -291,7 +296,7 @@
         ],
         "phase_ind": 3,
         "phase_name": "20% St",
-        "phase_score": 4,
+        "phase_score": 3,
         "phase_conf": 0.9431540966033936,
         "phase_bbox_x1y1_x2y2": [
           1302,
@@ -328,7 +333,7 @@
         ],
         "phase_ind": 4,
         "phase_name": "Tt",
-        "phase_score": 5,
+        "phase_score": 4,
         "phase_conf": 0.962123453617096,
         "phase_bbox_x1y1_x2y2": [
           1920,
@@ -349,7 +354,7 @@
         ],
         "phase_ind": 5,
         "phase_name": "NS",
-        "phase_score": 6,
+        "phase_score": 5,
         "phase_conf": 0.522983193397522,
         "phase_bbox_x1y1_x2y2": [
           2216,
@@ -370,7 +375,7 @@
         ],
         "phase_ind": 5,
         "phase_name": "NS",
-        "phase_score": 6,
+        "phase_score": 5,
         "phase_conf": 0.6094225645065308,
         "phase_bbox_x1y1_x2y2": [
           2505,
@@ -396,7 +401,7 @@
         ],
         "phase_ind": 3,
         "phase_name": "20% St",
-        "phase_score": 4,
+        "phase_score": 3,
         "phase_conf": 0.8470032215118408,
         "phase_bbox_x1y1_x2y2": [
           1032,
@@ -417,7 +422,7 @@
         ],
         "phase_ind": 3,
         "phase_name": "20% St",
-        "phase_score": 4,
+        "phase_score": 3,
         "phase_conf": 0.841090977191925,
         "phase_bbox_x1y1_x2y2": [
           1312,
@@ -438,7 +443,7 @@
         ],
         "phase_ind": 3,
         "phase_name": "20% St",
-        "phase_score": 4,
+        "phase_score": 3,
         "phase_conf": 0.9166693687438965,
         "phase_bbox_x1y1_x2y2": [
           1591,
@@ -459,7 +464,7 @@
         ],
         "phase_ind": 3,
         "phase_name": "20% St",
-        "phase_score": 4,
+        "phase_score": 3,
         "phase_conf": 0.8023549318313599,
         "phase_bbox_x1y1_x2y2": [
           1829,
@@ -480,7 +485,7 @@
         ],
         "phase_ind": 4,
         "phase_name": "Tt",
-        "phase_score": 5,
+        "phase_score": 4,
         "phase_conf": 0.8736743927001953,
         "phase_bbox_x1y1_x2y2": [
           2120,
@@ -501,7 +506,7 @@
         ],
         "phase_ind": 3,
         "phase_name": "20% St",
-        "phase_score": 4,
+        "phase_score": 3,
         "phase_conf": 0.8350204825401306,
         "phase_bbox_x1y1_x2y2": [
           2420,
@@ -527,7 +532,7 @@
         ],
         "phase_ind": 1,
         "phase_name": "Broken cream",
-        "phase_score": 2,
+        "phase_score": 1,
         "phase_conf": 0.7811535000801086,
         "phase_bbox_x1y1_x2y2": [
           967,
@@ -548,7 +553,7 @@
         ],
         "phase_ind": 1,
         "phase_name": "Broken cream",
-        "phase_score": 2,
+        "phase_score": 1,
         "phase_conf": 0.8788470029830933,
         "phase_bbox_x1y1_x2y2": [
           1324,
@@ -569,7 +574,7 @@
         ],
         "phase_ind": 1,
         "phase_name": "Broken cream",
-        "phase_score": 2,
+        "phase_score": 1,
         "phase_conf": 0.856769323348999,
         "phase_bbox_x1y1_x2y2": [
           1680,
@@ -590,7 +595,7 @@
         ],
         "phase_ind": 3,
         "phase_name": "20% St",
-        "phase_score": 4,
+        "phase_score": 3,
         "phase_conf": 0.7201390266418457,
         "phase_bbox_x1y1_x2y2": [
           1970,
@@ -611,7 +616,7 @@
         ],
         "phase_ind": 3,
         "phase_name": "20% St",
-        "phase_score": 4,
+        "phase_score": 3,
         "phase_conf": 0.7948957681655884,
         "phase_bbox_x1y1_x2y2": [
           2280,
@@ -653,7 +658,7 @@
         ],
         "phase_ind": 3,
         "phase_name": "20% St",
-        "phase_score": 4,
+        "phase_score": 3,
         "phase_conf": 0.729936957359314,
         "phase_bbox_x1y1_x2y2": [
           990,
@@ -674,7 +679,7 @@
         ],
         "phase_ind": 3,
         "phase_name": "20% St",
-        "phase_score": 4,
+        "phase_score": 3,
         "phase_conf": 0.815926194190979,
         "phase_bbox_x1y1_x2y2": [
           1325,
@@ -711,7 +716,7 @@
         ],
         "phase_ind": 4,
         "phase_name": "Tt",
-        "phase_score": 5,
+        "phase_score": 4,
         "phase_conf": 0.8465767502784729,
         "phase_bbox_x1y1_x2y2": [
           1943,
@@ -732,7 +737,7 @@
         ],
         "phase_ind": 4,
         "phase_name": "Tt",
-        "phase_score": 5,
+        "phase_score": 4,
         "phase_conf": 0.8591431975364685,
         "phase_bbox_x1y1_x2y2": [
           2253,
@@ -753,7 +758,7 @@
         ],
         "phase_ind": 4,
         "phase_name": "Tt",
-        "phase_score": 5,
+        "phase_score": 4,
         "phase_conf": 0.6039367914199829,
         "phase_bbox_x1y1_x2y2": [
           2545,

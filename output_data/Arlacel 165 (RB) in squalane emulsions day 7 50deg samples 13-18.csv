@@ -1,7 +1,7 @@
 filename,vial_ind,vial_conf,vial_bbox_x1y1_x2y2,phase_ind,phase_name,phase_score,phase_conf,phase_bbox_x1y1_x2y2,flag
-Arlacel 165 (RB) in squalane emulsions day 7 50deg samples 13-18.jpg,1,0.9577350616455078,"(965, 1497, 1205, 2007)",1,Broken cream,2,0.7811535000801086,"(967, 1785, 1201, 2000)",
-Arlacel 165 (RB) in squalane emulsions day 7 50deg samples 13-18.jpg,2,0.9500927925109863,"(1321, 1487, 1547, 1988)",1,Broken cream,2,0.8788470029830933,"(1324, 1770, 1544, 1979)",
-Arlacel 165 (RB) in squalane emulsions day 7 50deg samples 13-18.jpg,3,0.924256443977356,"(1672, 1479, 1895, 1986)",1,Broken cream,2,0.856769323348999,"(1680, 1772, 1889, 1975)",
-Arlacel 165 (RB) in squalane emulsions day 7 50deg samples 13-18.jpg,4,0.9669859409332275,"(1967, 1467, 2187, 1970)",3,20% St,4,0.7201390266418457,"(1970, 1760, 2187, 1962)",
-Arlacel 165 (RB) in squalane emulsions day 7 50deg samples 13-18.jpg,5,0.9541225433349609,"(2277, 1467, 2500, 1965)",3,20% St,4,0.7948957681655884,"(2280, 1753, 2497, 1959)",
+Arlacel 165 (RB) in squalane emulsions day 7 50deg samples 13-18.jpg,1,0.9577350616455078,"(965, 1497, 1205, 2007)",1,Broken cream,1,0.7811535000801086,"(967, 1785, 1201, 2000)",
+Arlacel 165 (RB) in squalane emulsions day 7 50deg samples 13-18.jpg,2,0.9500927925109863,"(1321, 1487, 1547, 1988)",1,Broken cream,1,0.8788470029830933,"(1324, 1770, 1544, 1979)",
+Arlacel 165 (RB) in squalane emulsions day 7 50deg samples 13-18.jpg,3,0.924256443977356,"(1672, 1479, 1895, 1986)",1,Broken cream,1,0.856769323348999,"(1680, 1772, 1889, 1975)",
+Arlacel 165 (RB) in squalane emulsions day 7 50deg samples 13-18.jpg,4,0.9669859409332275,"(1967, 1467, 2187, 1970)",3,20% St,3,0.7201390266418457,"(1970, 1760, 2187, 1962)",
+Arlacel 165 (RB) in squalane emulsions day 7 50deg samples 13-18.jpg,5,0.9541225433349609,"(2277, 1467, 2500, 1965)",3,20% St,3,0.7948957681655884,"(2280, 1753, 2497, 1959)",
 Arlacel 165 (RB) in squalane emulsions day 7 50deg samples 13-18.jpg,6,0.9584872722625732,"(2593, 1462, 2834, 1969)",-1,Null,-1,0.0,,No phase detected!

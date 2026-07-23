@@ -1,7 +1,7 @@
 filename,vial_ind,vial_conf,vial_bbox_x1y1_x2y2,phase_ind,phase_name,phase_score,phase_conf,phase_bbox_x1y1_x2y2,flag
-Aracel 165 (RB) emulsions day 1 Squalane only samples 1-6.jpg,1,0.5925916433334351,"(1013, 1137, 1241, 1619)",3,20% St,4,0.923918604850769,"(1019, 1416, 1234, 1610)",
-Aracel 165 (RB) emulsions day 1 Squalane only samples 1-6.jpg,2,0.9457775354385376,"(1325, 1135, 1550, 1610)",3,20% St,4,0.8649581670761108,"(1331, 1407, 1547, 1597)",
-Aracel 165 (RB) emulsions day 1 Squalane only samples 1-6.jpg,3,0.943716824054718,"(1619, 1137, 1832, 1610)",4,Tt,5,0.5203162431716919,"(1618, 1407, 1828, 1599)",
-Aracel 165 (RB) emulsions day 1 Squalane only samples 1-6.jpg,4,0.963826060295105,"(1902, 1137, 2109, 1607)",-1,Null,-1,0.0,,No phase detected!
-Aracel 165 (RB) emulsions day 1 Squalane only samples 1-6.jpg,5,0.9644445776939392,"(2202, 1139, 2409, 1610)",5,NS,6,0.7433708310127258,"(2203, 1408, 2407, 1601)",
-Aracel 165 (RB) emulsions day 1 Squalane only samples 1-6.jpg,6,0.9584437012672424,"(2501, 1140, 2728, 1625)",5,NS,6,0.8648555874824524,"(2501, 1401, 2718, 1615)",
+Aracel 165 (RB) emulsions day 1 Squalane only samples 1-6.jpg,1,0.5925916433334351,"(1013, 1137, 1241, 1619)",3,20% St,3,0.923918604850769,"(1019, 1416, 1234, 1610)",
+Aracel 165 (RB) emulsions day 1 Squalane only samples 1-6.jpg,2,0.9457775354385376,"(1325, 1135, 1550, 1610)",3,20% St,3,0.8649581670761108,"(1331, 1407, 1547, 1597)",
+Aracel 165 (RB) emulsions day 1 Squalane only samples 1-6.jpg,3,0.943716824054718,"(1619, 1137, 1832, 1610)",4,Tt,4,0.5203162431716919,"(1618, 1407, 1828, 1599)",
+Aracel 165 (RB) emulsions day 1 Squalane only samples 1-6.jpg,4,0.963826060295105,"(1902, 1137, 2109, 1607)",3,20% St,3,0.3703596889972687,"(1904, 1396, 2110, 1597)",
+Aracel 165 (RB) emulsions day 1 Squalane only samples 1-6.jpg,5,0.9644445776939392,"(2202, 1139, 2409, 1610)",5,NS,5,0.7433708310127258,"(2203, 1408, 2407, 1601)",
+Aracel 165 (RB) emulsions day 1 Squalane only samples 1-6.jpg,6,0.9584437012672424,"(2501, 1140, 2728, 1625)",5,NS,5,0.8648555874824524,"(2501, 1401, 2718, 1615)",

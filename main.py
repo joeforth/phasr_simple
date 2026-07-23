@@ -113,7 +113,7 @@ def run_single_detect():
 
     log_warnings_for_result(detections_class, n_vials)
 
-    vis_frame = processing.visualise_phases(frame, detections, phase_names)
+    vis_frame = fit_to_display(processing.visualise_phases(frame, detections, phase_names))
     show_on_panel(detected_panel, vis_frame)
 
     last_detections_class = detections_class
@@ -176,7 +176,7 @@ def run_batch():
         file_out = os.path.join(DATA_OUT_DIR, name)
         processing.save_data(detections_class, file_out)
 
-        vis_frame = processing.visualise_phases(frame, detections, phase_names)
+        vis_frame = fit_to_display(processing.visualise_phases(frame, detections, phase_names))
         cv2.imwrite(os.path.join(VIS_OUT_DIR, f"{name}_vis{ext}"), vis_frame)
 
         log_message(f"Processed {filename}")

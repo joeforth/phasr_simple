@@ -3,3 +3,5 @@
 /runs
 /trained_models
 /training_data
+/output_data
+/output_detections

@@ -12,7 +12,7 @@
       ],
       "phase_ind": 3,
       "phase_name": "20% St",
-      "phase_score": 4,
+      "phase_score": 3,
       "phase_conf": 0.729936957359314,
       "phase_bbox_x1y1_x2y2": [
         990,
@@ -33,7 +33,7 @@
       ],
       "phase_ind": 3,
       "phase_name": "20% St",
-      "phase_score": 4,
+      "phase_score": 3,
       "phase_conf": 0.815926194190979,
       "phase_bbox_x1y1_x2y2": [
         1325,
@@ -70,7 +70,7 @@
       ],
       "phase_ind": 4,
       "phase_name": "Tt",
-      "phase_score": 5,
+      "phase_score": 4,
       "phase_conf": 0.8465767502784729,
       "phase_bbox_x1y1_x2y2": [
         1943,
@@ -91,7 +91,7 @@
       ],
       "phase_ind": 4,
       "phase_name": "Tt",
-      "phase_score": 5,
+      "phase_score": 4,
       "phase_conf": 0.8591431975364685,
       "phase_bbox_x1y1_x2y2": [
         2253,
@@ -112,7 +112,7 @@
       ],
       "phase_ind": 4,
       "phase_name": "Tt",
-      "phase_score": 5,
+      "phase_score": 4,
       "phase_conf": 0.6039367914199829,
       "phase_bbox_x1y1_x2y2": [
         2545,

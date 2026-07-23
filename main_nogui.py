@@ -7,7 +7,7 @@ from ultralytics import YOLO
 conf = 0.5      # Confidence threshold below which we ignore detected objects
 iou = 0.7       # Amount of overlap between detected objects above which we ignore them - this can be very high for vial detection!
 n_vials = 6     # Minimum number of vials in each image - triggers a warning if we detect fewer than this
-img_w, img_h = 1180, 500    # Maximum dimensions of the image shown
+img_w, img_h = 1180, 350    # Maximum dimensions of the saved visualisation - matches main.py's on-screen size
 filedir = './images/'
 image_exts = ('.jpg', '.jpeg', '.png', '.bmp', '.tif', '.tiff')
 phase_names = processing.load_class_names('./classes.txt')
@@ -35,7 +35,7 @@ for filename in filenames:
     file_out = os.path.join(data_out_dir, os.path.splitext(filename)[0])
     processing.save_data(detections_class, file_out)
 
-    vis_frame = processing.visualise_phases(frame, detections, phase_names)
+    vis_frame = processing.fit_to_display(processing.visualise_phases(frame, detections, phase_names), img_w, img_h)
     name, ext = os.path.splitext(filename)
     vis_path = os.path.join(vis_out_dir, f"{name}_vis{ext}")
     cv2.imwrite(vis_path, vis_frame)

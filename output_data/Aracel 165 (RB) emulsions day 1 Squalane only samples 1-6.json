@@ -12,7 +12,7 @@
       ],
       "phase_ind": 3,
       "phase_name": "20% St",
-      "phase_score": 4,
+      "phase_score": 3,
       "phase_conf": 0.923918604850769,
       "phase_bbox_x1y1_x2y2": [
         1019,
@@ -33,7 +33,7 @@
       ],
       "phase_ind": 3,
       "phase_name": "20% St",
-      "phase_score": 4,
+      "phase_score": 3,
       "phase_conf": 0.8649581670761108,
       "phase_bbox_x1y1_x2y2": [
         1331,
@@ -54,7 +54,7 @@
       ],
       "phase_ind": 4,
       "phase_name": "Tt",
-      "phase_score": 5,
+      "phase_score": 4,
       "phase_conf": 0.5203162431716919,
       "phase_bbox_x1y1_x2y2": [
         1618,
@@ -73,12 +73,17 @@
         2109,
         1607
       ],
-      "phase_ind": -1,
-      "phase_name": "Null",
-      "phase_score": -1,
-      "phase_conf": 0.0,
-      "phase_bbox_x1y1_x2y2": null,
-      "flag": "No phase detected!"
+      "phase_ind": 3,
+      "phase_name": "20% St",
+      "phase_score": 3,
+      "phase_conf": 0.3703596889972687,
+      "phase_bbox_x1y1_x2y2": [
+        1904,
+        1396,
+        2110,
+        1597
+      ],
+      "flag": ""
     },
     {
       "vial_ind": 5,
@@ -91,7 +96,7 @@
       ],
       "phase_ind": 5,
       "phase_name": "NS",
-      "phase_score": 6,
+      "phase_score": 5,
       "phase_conf": 0.7433708310127258,
       "phase_bbox_x1y1_x2y2": [
         2203,
@@ -112,7 +117,7 @@
       ],
       "phase_ind": 5,
       "phase_name": "NS",
-      "phase_score": 6,
+      "phase_score": 5,
       "phase_conf": 0.8648555874824524,
       "phase_bbox_x1y1_x2y2": [
         2501,
