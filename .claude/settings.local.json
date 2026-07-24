@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(/c/Users/jwforth/.conda/envs/phasr/python.exe -m pip list)",
+      "Bash(git -C /c/Users/jwforth/Desktop/GitHub/phasr_simple status)"
+    ]
+  }
+}
