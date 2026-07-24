@@ -1,4 +1,6 @@
 *.pt
+.claude
+.vscode
 /data
 /runs
 /trained_models
